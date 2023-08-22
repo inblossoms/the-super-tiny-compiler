@@ -35,7 +35,7 @@ export function traverser(rootNode: RootNode, visitor: Visitor) {
    * @param node ChildNode | RootNode
    */
   function traverserNodeTree(node: ChildNode | RootNode, parent?: ParentNode) {
-    console.log(node);
+    // console.log(node)
     // 2. 提供 curd 能力 - visitor : enter
     const methods = visitor[node.type];
     if (methods) {
