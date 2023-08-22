@@ -34,6 +34,8 @@ test("traverser", () => {
   };
 
   const callCounts: Array<string | NodeTypes>[] = [];
+  // By calling enter | exit => Get parent & child -  CURD
+  //
   const visitor: Visitor = {
     Program: {
       enter(node, parent) {

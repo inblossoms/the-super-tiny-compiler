@@ -6,6 +6,7 @@ export function transformer(ast: RootNode) {
     body: [],
   };
 
+  // 追加 ast.context 构建 ast - Program { body ...
   ast.context = newAst.body;
 
   traverser(ast, {
@@ -21,8 +22,10 @@ export function transformer(ast: RootNode) {
             arguments: [],
           };
 
+          // 追加 node.context 建立 number_node 与父节点关系：
           node.context = expression.arguments;
 
+          // dispose: root.parent -> expressionStatement
           if (parent?.type !== NodeTypes.CallExpression) {
             expression = {
               type: "ExpressionStatement",
